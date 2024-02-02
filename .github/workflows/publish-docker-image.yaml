@@ -5,6 +5,10 @@ on:
         required: false
         type: string
         default: ${{ github.repository }}
+      directory:
+        required: false
+        type: string
+        default: .
     secrets:
       CR_PAT:
         required: true
@@ -17,5 +21,5 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: echo ${{ secrets.CR_PAT }} | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
-      - run: docker build -t ghcr.io/${{ inputs.name }}:${{ github.sha }} .
+      - run: docker build -t ghcr.io/${{ inputs.name }}:${{ github.sha }} ${{ inputs.directory }}
       - run: docker push ghcr.io/${{ inputs.name }}:${{ github.sha }}
