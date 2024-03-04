@@ -27,14 +27,14 @@ jobs:
         with:
           default_author: github_actor
           message: Update deployed version for ${{ inputs.service }}
-      - uses: azure/setup-helm@v4.1.0
-      - uses: WyriHaximus/github-action-helm3@v3
-        with:
-          exec: helm dependency build env/${{ inputs.env }}
-          kubeconfig: '${{ secrets.KUBE_CONFIG }}'
-          overrule_existing_kubeconfig: "true"
-      - uses: WyriHaximus/github-action-helm3@v3
-        with:
-          exec: helm upgrade --install -f env/${{ inputs.env }}/values.yaml ${{ inputs.env }} ./env/${{ inputs.env }}
-          kubeconfig: '${{ secrets.KUBE_CONFIG }}'
-          overrule_existing_kubeconfig: "true"
+#      - uses: azure/setup-helm@v4.1.0
+#      - uses: WyriHaximus/github-action-helm3@v3
+#        with:
+#          exec: helm dependency build env/${{ inputs.env }}
+#          kubeconfig: '${{ secrets.KUBE_CONFIG }}'
+#          overrule_existing_kubeconfig: "true"
+#      - uses: WyriHaximus/github-action-helm3@v3
+#        with:
+#          exec: helm upgrade --install -f env/${{ inputs.env }}/values.yaml ${{ inputs.env }} ./env/${{ inputs.env }}
+#          kubeconfig: '${{ secrets.KUBE_CONFIG }}'
+#          overrule_existing_kubeconfig: "true"
