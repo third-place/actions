@@ -8,7 +8,7 @@ on:
         type: string
         required: true
     secrets:
-      PAT:
+      CHECKOUT_PAT:
         required: true
       KUBE_CONFIG:
         required: true
@@ -21,7 +21,7 @@ jobs:
         with:
           repository: third-place/platform
           ref: main
-          token: ${{ secrets.PAT }}
+          token: ${{ secrets.CHECKOUT_PAT }}
       - run: sudo snap install yq
       - run: yq -i '.global.versions.${{ inputs.service }}.version = "${{ github.sha }}"' env/${{ inputs.env }}/values.yaml
       - uses: EndBug/add-and-commit@v9
