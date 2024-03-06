@@ -22,5 +22,5 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: echo ${{ secrets.CR_PAT }} | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
-      - run: docker build -f ${{ inputs.dockerfile }} -t ghcr.io/${{ inputs.name }}:${{ github.sha }} ${{ inputs.directory }}
-      - run: docker push ghcr.io/${{ inputs.name }}:${{ github.sha }}
+      - run: docker build -f ${{ inputs.dockerfile }} -t ghcr.io/third-place/${{ inputs.name }}:${{ github.sha }} ${{ inputs.directory }}
+      - run: docker push ghcr.io/third-place/${{ inputs.name }}:${{ github.sha }}
