@@ -2,9 +2,8 @@ on:
   workflow_call:
     inputs:
       name:
-        required: false
+        required: true
         type: string
-        default: ${{ github.repository }}
       directory:
         type: string
         default: .
