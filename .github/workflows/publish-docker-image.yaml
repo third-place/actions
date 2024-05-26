@@ -36,3 +36,4 @@ jobs:
           push: true
           tags: ghcr.io/third-place/${{ inputs.name }}:${{ github.sha }}
           build-args: ${{ inputs.buildargs }}
+          file: ${{ inputs.dockerfile }}
